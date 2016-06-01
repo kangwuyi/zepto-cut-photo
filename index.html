@@ -425,25 +425,18 @@
                             aria-hidden="true" class="octicon octicon-link"></span></a>使用方法</h3>
 
                 <p>参考了 Jquery.js 和 zepto.js 的一些组件写法，勉强算第一个版本，其中也参考了很多人的做好。</p>
-                <pre><code class="javascript nohighlight">$.cutPhoto(
-    "#browseFile",
-    "#imgCutPreview",
-    "#cutBox",
-    "#mainCutter",
-    "#processBar",
-    "#processPoint",
-    function (cutPhotoCacheData, initStatus) {
-
-        $("#saveimg").click(function () {
+                <pre><code class="javascript nohighlight"> $.cutPhoto(
+        {
+            container         : "container_node",
+            browse_button     : "browseFile",
+            save_button       : "saveimg",
+            filters_background: "<%= locals.userInfo.photo_url %>"
+        },
+        function (cutPhotoCacheData, initStatus) {
             var imgData   = cutPhotoCacheData();
-            if (initStatus == false) {
-                alert("上传失败");
-                return;
-            }
-            uploader.start();
-        });
-    });
-});</code></pre>
+            //todo
+        }
+    );</code></pre>
                 
             </article>
         </div>
